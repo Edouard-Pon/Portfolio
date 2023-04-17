@@ -1,0 +1,8 @@
+<h2>New Profile</h2>
+<form action="/profile" method="post">
+    <%- include('_form_fields', { profile: profile }) %>
+    <div class="form-row form-row-end btn-row">
+        <a class="btn btn-dange" href="/profile">Cancel</a>
+        <button class="btn btn-primary" type="submit">Create</button>
+    </div>
+</form>

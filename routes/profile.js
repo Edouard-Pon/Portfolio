@@ -14,3 +14,5 @@ router.get('/', async (req, res) => {
 router.get('/new', (req, res) => {
     res.render('profile/new', { profile: new Profile() })
 })
+
+module.exports = router
