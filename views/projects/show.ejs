@@ -1,0 +1,28 @@
+<h2><%= project.title %></h2>
+<div>
+    <div>
+        <img src="<%= project.coverImageLink %>" alt="Project Cover Image">
+    </div>
+    <div>
+        <div>Uploaded:</div>
+        <div><%= project.uploadDate.toDateString() %></div>
+        <% if (project.updateDate != null) { %>
+            <div>Updated:</div>
+            <div><%= project.updateDate.toDateString() %></div>
+        <% } %>
+        <% if (project.sourceCode != null && project.sourceCode !== '') { %>
+            <div>Source Code:</div>
+            <div><%= project.sourceCode %></div>
+        <% } %>
+    </div>
+</div>
+<% if (project.description != null && project.description !== '') { %>
+    <div>
+        <div>Description:</div>
+        <div><%= project.description %></div>
+    </div>
+<% } %>
+<div class="btn-row">
+    <a class="btn btn-primary" href="/projects/<%= project.id %>/edit">Edit</a>
+    <%- include('../partials/deleteForm', { url: `/projects/${project.id}` }) %>
+</div>
