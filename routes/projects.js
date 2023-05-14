@@ -64,4 +64,39 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
+// Edit Project Route
+router.get('/:id/edit', async (req, res) => {
+    try {
+        const project = await Project.findById(req.params.id)
+        res.render('projects/edit', { project: project })
+    } catch {
+        res.redirect('/projects')
+    }
+})
+
+// Update Project Route
+router.put('/:id',  async (req, res) => {
+    let project
+    try {
+        project = await Project.findById(req.params.id)
+        project.title = req.body.title
+        project.uploadDate = req.body.uploadDate
+        project.updateDate = req.body.updateDate
+        project.sourceCode = req.body.sourceCode
+        project.description = req.body.description
+        project.coverImageLink = req.body.coverImageLink
+        await project.save()
+        res.redirect(`/projects/${project.id}`)
+    } catch {
+        if (project == null) {
+            res.redirect('/')
+        } else {
+            res.render('projects/edit', {
+                project: project,
+                errorMessage: 'Error updating Project'
+            })
+        }
+    }
+})
+
 module.exports = router
