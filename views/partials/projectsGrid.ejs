@@ -1,7 +1,10 @@
 <div class="projects-grid">
     <% projects.forEach(project => { %>
-        <a href="/projects/<%= project.id %>">
-            <img class="project-cover" src="<%= project.coverImageLink %>" alt="">
-        </a>
+        <div>
+            <a href="/projects/<%= project.id %>">
+                <img class="project-cover" src="<%= project.coverImageLink %>" alt="">
+            </a>
+            <h3><%= project.title %></h3>
+        </div>
     <% }) %>
 </div>
