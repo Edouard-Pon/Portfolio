@@ -27,7 +27,8 @@ router.post('/', async (req, res) => {
             updateDate: req.body.updateDate,
             sourceCode: req.body.sourceCode,
             description: req.body.description,
-            coverImageLink: req.body.coverImageLink
+            coverImageLink: req.body.coverImageLink,
+            images: req.body.projectImages
         })
         await newProject.save()
         res.redirect(`projects/${newProject.id}`)
@@ -85,6 +86,7 @@ router.put('/:id',  async (req, res) => {
         project.sourceCode = req.body.sourceCode
         project.description = req.body.description
         project.coverImageLink = req.body.coverImageLink
+        project.images = req.body.projectImages
         await project.save()
         res.redirect(`/projects/${project.id}`)
     } catch {

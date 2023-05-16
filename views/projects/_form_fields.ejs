@@ -24,4 +24,14 @@
         <label for="coverImageLink">Cover Image Link</label>
         <input type="text" id="coverImageLink" name="coverImageLink" value="<%= project.coverImageLink %>">
     </div>
+    <div class="form-item" id="projectImagesField">
+        <label for="projectImages">Image URL</label>
+        <% if (project.images.length > 0) { %>
+            <% project.images.forEach(image => { %>
+                <input type="text" id="projectImages" name="projectImage" value="<%= image %>">
+            <% }) %>
+        <% } %>
+    </div>
+    <button class="btn btn-primary" onclick="addRemoveField()" type="button">Add Image</button>
+    <button class="btn btn-primary" onclick="removeLastField()" type="button">Remove Image</button>
 </div>

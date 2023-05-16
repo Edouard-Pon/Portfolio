@@ -20,7 +20,10 @@ const projectSchema = new mongoose.Schema({
     },
     coverImageLink: {
         type: String
-    }
+    },
+    images: [{
+        type: String
+    }]
 })
 
 module.exports = mongoose.model('Project', projectSchema)
