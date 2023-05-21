@@ -1,7 +1,49 @@
+@import "shared/fonts.css";
+@import "shared/header.css";
+
+:root {
+    --bg-color: #ececef;
+    --text-color: #131316;
+    --btn-primary-color: #cbcbc2;
+    --accent-color: #9c9c8b;
+
+    font-family: 'Roboto', serif;
+    font-size: 100%;
+    background-color: var(--bg-color);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+* {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+    gap: 2.5rem;
+    width: 100%;
+}
+
+img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+}
+
 .global-warning {
     text-align: center;
     padding: 10px;
-    color: red;
-    font-size: 18px;
-    background-color: #505050;
+    color: #c20000;
+    font-size: 1.2rem;
+    background-color: var(--accent-color);
+    border-radius: 5px;
 }
