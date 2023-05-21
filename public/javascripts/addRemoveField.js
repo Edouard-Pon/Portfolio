@@ -1,4 +1,4 @@
-function addRemoveField() {
+function addField() {
     let form = document.getElementById('projectImagesField')
     let input = document.createElement('input')
     input.type = 'text'
@@ -12,8 +12,6 @@ function addRemoveField() {
 function removeLastField() {
     let form = document.getElementById('projectImagesField')
     let fields = form.querySelectorAll('input[id="projectImages"]')
-
-    console.log(fields)
 
     let lastField = fields[fields.length - 1]
 
