@@ -61,7 +61,7 @@ router.get('/edit', async  (req, res) => {
 router.put('/', async (req, res) => {
     let profile
     try {
-        profile = await Profile.find()
+        profile = await Profile.findOne()
         profile.firstName = req.body.firstName
         profile.lastName = req.body.lastName
         profile.age = req.body.age
