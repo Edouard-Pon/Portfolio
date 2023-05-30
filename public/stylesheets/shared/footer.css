@@ -1,0 +1,23 @@
+footer {
+    width: 85%;
+    margin-top: auto;
+}
+
+.footer-info {
+    display: flex;
+    align-items: center;    
+    background-color: var(--accent-color);
+    padding: .7rem 2rem .7rem;
+    border-radius: 5px 5px 0 0;
+}
+
+.footer-info a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+}
+
+.footer-info a:hover {
+    transform: translateY(-2px);
+}

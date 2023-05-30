@@ -1,8 +1,11 @@
 @import "shared/fonts.css";
 @import "shared/header.css";
+@import "shared/footer.css";
 
 :root {
     --bg-color: #ececef;
+    --bg-color-light: #f3f3f4;
+    --bg-color-dark: #c8c8ca;
     --text-color: #131316;
     --btn-primary-color: #cbcbc2;
     --accent-color: #9c9c8b;
@@ -37,6 +40,11 @@ body {
 img, picture, svg, video {
     display: block;
     max-width: 100%;
+}
+
+main {
+    width: 80%;
+    height: 100%;
 }
 
 .global-warning {
