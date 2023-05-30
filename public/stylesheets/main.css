@@ -1,6 +1,7 @@
 @import "shared/fonts.css";
 @import "shared/header.css";
 @import "shared/footer.css";
+@import "shared/projects.css";
 
 :root {
     --bg-color: #ececef;
