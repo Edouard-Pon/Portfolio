@@ -1,2 +1,16 @@
-<h1>Home Page</h1>
-<%- include('partials/projectsGrid', { projects: projects, large: true }) %>
+<div class="home-page">
+    <%- include('partials/profileGrid', { profile: profile }) %>
+    <!--  Temporary solution  -->
+    <section class="home-page-sidebar">
+        <h1>Projects</h1>
+        <div class="home-projects-grid">
+            <% if (projects && projects.length !== 0) { %>
+                <% projects.forEach(project => { %>
+                    <section>
+                        <h2><a href="/projects/<%= project.id %>"><%= project.title %></a></h2>
+                    </section>
+                <% }) %>
+            <% } %>
+        </div>
+    </section>
+</div>

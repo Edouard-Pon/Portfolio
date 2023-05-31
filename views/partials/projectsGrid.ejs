@@ -3,9 +3,11 @@
     <% if (projects && projects.length !== 0) { %>
         <% projects.forEach(project => { %>
             <section>
-                <a href="/projects/<%= project.id %>">
-                    <img class="project-cover <%= projectCoverClass %>" src="<%= project.coverImageLink %>" alt="">
-                </a>
+                <% if (!project.coverImageLink && project.coverImageLink !== '') { %>
+                    <a href="/projects/<%= project.id %>">
+                        <img class="project-cover <%= projectCoverClass %>" src="<%= project.coverImageLink %>" alt="">
+                    </a>
+                <% } %>
                 <h2><a href="/projects/<%= project.id %>"><%= project.title %></a></h2>
             </section>
         <% }) %>

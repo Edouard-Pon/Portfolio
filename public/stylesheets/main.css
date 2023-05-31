@@ -2,6 +2,7 @@
 @import "shared/header.css";
 @import "shared/footer.css";
 @import "shared/projects.css";
+@import "shared/profile.css";
 
 :root {
     --bg-color: #ececef;
@@ -55,4 +56,59 @@ main {
     font-size: 1.2rem;
     background-color: var(--accent-color);
     border-radius: 5px;
+}
+
+/* Temporary solution */
+
+.home-page {
+    display: flex;
+    gap: 1em;
+}
+
+.home-page > *:first-child {
+    flex-basis: 80%;
+    align-self: flex-start;
+}
+
+.home-page > *:last-child {
+    flex-basis: 20%;
+    align-self: flex-start;
+}
+
+.home-projects-grid {
+    background-color: var(--bg-color-light);
+    display: grid;
+    justify-content: left;
+    grid-row-gap: 1rem;
+    grid-template-rows: repeat(1, 1fr);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.home-projects-grid a {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.home-projects-grid h2 {
+    transition: transform 0.3s ease;
+}
+
+.home-projects-grid h2:hover {
+    transform: translateY(-2px);
+}
+
+.home-page-sidebar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.home-page-sidebar h1 {
+    font-size: 1.6rem;
+    background-color: var(--accent-color);
+    padding: 1rem 2.5rem;
+    border-radius: 25px 5px;
 }

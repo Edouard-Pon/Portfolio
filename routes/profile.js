@@ -4,11 +4,11 @@ const Profile = require('../models/profile')
 
 router.get('/', async (req, res) => {
     try {
-        const profile = await Profile.find()
-        if (profile.length === 0) {
+        const profile = await Profile.findOne()
+        if (!profile) {
             res.render('profile/index', { profile: new Profile(), errorMessage: 'You haven\'t set up your profile yet!' })
         } else {
-            res.render('profile/index', { profile: profile[0] })
+            res.render('profile/index', { profile: profile })
         }
     } catch {
         res.redirect('/')
@@ -46,11 +46,11 @@ router.post('/', async (req, res) => {
 // Edit Profile Route
 router.get('/edit', async  (req, res) => {
     try {
-        const profile = await Profile.find()
-        if (profile.length === 0) {
+        const profile = await Profile.findOne()
+        if (!profile) {
             res.render('profile/index', { profile: new Profile(), errorMessage: 'You haven\'t set up your profile yet!' })
         } else {
-            res.render('profile/edit', { profile: profile[0] })
+            res.render('profile/edit', { profile: profile })
         }
     } catch {
         res.redirect('/')
