@@ -83,6 +83,7 @@ main {
     grid-template-rows: repeat(1, 1fr);
     padding: 1rem;
     border-radius: 5px;
+    width: 100%;
 }
 
 .home-projects-grid a {

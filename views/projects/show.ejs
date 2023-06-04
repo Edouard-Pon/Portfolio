@@ -25,10 +25,14 @@
     </div>
 <% } %>
 <% if (project.images.length > 0) { %>
-    <div>
+    <div class="projectImages">
+        <a class="prevImg" onclick="changeSlide(-1)">&#10094;</a>
         <% project.images.forEach(image => { %>
-            <img src="<%= image %>" alt="projectImage">
+            <div class="slide">
+                <img src="<%= image %>" alt="Project Image">
+            </div>
         <% }) %>
+        <a class="nextImg" onclick="changeSlide(1)">&#10095;</a>
     </div>
 <% } %>
 <div class="btn-row">
