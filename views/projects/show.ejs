@@ -7,10 +7,10 @@
     <% } %>
     <div>
         <div>Uploaded:</div>
-        <div><%= project.uploadDate.toDateString() %></div>
+        <div><%= project.uploadDate.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '-') %></div>
         <% if (project.updateDate != null) { %>
             <div>Updated:</div>
-            <div><%= project.updateDate.toDateString() %></div>
+            <div><%= project.updateDate.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '-') %></div>
         <% } %>
         <% if (project.sourceCode != null && project.sourceCode !== '') { %>
             <div>Source Code:</div>
