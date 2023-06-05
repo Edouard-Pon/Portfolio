@@ -1,9 +1,36 @@
-.profile-grid {
-    background-color: var(--bg-color-light);
+.profile-page {
     display: grid;
-    justify-content: left;
-    grid-row-gap: 1rem;
-    grid-template-rows: repeat(1, 1fr);
+    gap: 1rem;
+}
+
+.profile-details-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+.profile-details-item {
+    background-color: var(--bg-color-light);
     padding: 1rem;
     border-radius: 5px;
+}
+
+.profile-title {
+    margin-left: 1.2rem;
+}
+
+.profile-description {
+    display: grid;
+    gap: .6rem;
+    background-color: var(--bg-color-light);
+    padding: 1rem;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.profile-details-item-label {
+    background-color: var(--accent-color);
+    padding: 1rem 2.5rem;
+    border-radius: 25px 5px;
 }

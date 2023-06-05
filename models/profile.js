@@ -9,9 +9,6 @@ const profileSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    age: {
-        type: String
-    },
     github: {
         type: String
     },

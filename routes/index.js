@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     } catch {
         let projects = []
         let profile = new Profile()
-        res.redirect('/', { projects: projects, profile: profile })
+        res.render('index', { projects: projects, profile: profile, errorMessage: 'Error' })
     }
 })
 

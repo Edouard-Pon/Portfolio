@@ -1,9 +1,22 @@
-<section class="profile-grid">
-    <h1><%= profile.firstName %> <%= profile.lastName %></h1>
+<section class="profile-page">
+    <h1 class="profile-title"><%= profile.firstName %> <%= profile.lastName %></h1>
     <div class="profile-details-grid">
-        <% if (profile.age != null && profile.age !== '') { %>
-            <div><%= profile.age %></div>
+        <% if (profile.programmingLanguages.length > 0) { %>
+            <div class="profile-details-item-label">Programming Languages</div>
+            <% profile.programmingLanguages.forEach(pl => { %>
+                <div class="profile-details-item"><%= pl %></div>
+            <% }) %>
         <% } %>
+    </div>
+    <div class="profile-details-grid">
+        <% if (profile.languages.length > 0) { %>
+            <div class="profile-details-item-label">Languages</div>
+            <% profile.languages.forEach(l => { %>
+                <div class="profile-details-item"><%= l %></div>
+            <% }) %>
+        <% } %>
+    </div>
+    <div class="profile-description">
         <% if (profile.description != null && profile.description !== '') { %>
             <p><%= profile.description %></p>
         <% } %>
