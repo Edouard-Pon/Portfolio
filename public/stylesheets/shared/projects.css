@@ -62,3 +62,37 @@
     cursor: pointer;
     user-select: none;
 }
+
+.project-details {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 1rem;
+}
+
+.project-details-grid {
+    background-color: var(--bg-color-light);
+    padding: 1rem;
+    gap: .6rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.project-description {
+    display: grid;
+    gap: .6rem;
+    background-color: var(--bg-color-light);
+    padding: 1rem;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.project-page {
+    display: grid;
+    gap: 1rem;
+}
+
+.project-title {
+    margin-left: 1.2rem;
+}

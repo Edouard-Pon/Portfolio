@@ -3,13 +3,17 @@
 @import "shared/footer.css";
 @import "shared/projects.css";
 @import "shared/profile.css";
+@import "shared/buttons.css";
 
 :root {
     --bg-color: #ececef;
     --bg-color-light: #f3f3f4;
     --bg-color-dark: #c8c8ca;
     --text-color: #131316;
-    --btn-primary-color: #cbcbc2;
+    --btn-primary-color-light: #cbcbc2;
+    --btn-primary-color-dark: #a9a99d;
+    --btn-danger-color-light: #ff7a7a;
+    --btn-danger-color-dark: #ff4d4f;
     --accent-color: #9c9c8b;
 
     font-family: 'Roboto', serif;

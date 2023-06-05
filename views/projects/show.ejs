@@ -1,41 +1,43 @@
-<h1><%= project.title %></h1>
-<div>
-    <% if (!project.coverImageLink && project.coverImageLink !== "") { %>
-        <div>
-            <img class="project-cover project-cover-large" src="<%= project.coverImageLink %>" alt="Project Cover Image">
+<div class="project-page">
+    <h1 class="project-title"><%= project.title %></h1>
+    <div class="project-details">
+        <% if (!project.coverImageLink && project.coverImageLink !== "") { %>
+            <div>
+                <img class="project-cover project-cover-large" src="<%= project.coverImageLink %>" alt="Project Cover Image">
+            </div>
+        <% } %>
+        <div class="project-details-grid">
+            <div>Uploaded:</div>
+            <div><%= project.uploadDate.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '-') %></div>
+            <% if (project.updateDate != null) { %>
+                <div>Updated:</div>
+                <div><%= project.updateDate.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '-') %></div>
+            <% } %>
+            <% if (project.sourceCode != null && project.sourceCode !== '') { %>
+                <div>Source Code:</div>
+                <div><%= project.sourceCode %></div>
+            <% } %>
+        </div>
+        <% if (project.description != null && project.description !== '') { %>
+            <div class="project-description">
+                <div>Description:</div>
+                <div><%= project.description %></div>
+            </div>
+        <% } %>
+    </div>
+    <% if (project.images.length > 0) { %>
+        <div class="projectImages">
+            <a class="prevImg" onclick="changeSlide(-1)">&#10094;</a>
+            <% project.images.forEach(image => { %>
+                <div class="slide">
+                    <img src="<%= image %>" alt="Project Image">
+                </div>
+            <% }) %>
+            <a class="nextImg" onclick="changeSlide(1)">&#10095;</a>
         </div>
     <% } %>
-    <div>
-        <div>Uploaded:</div>
-        <div><%= project.uploadDate.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '-') %></div>
-        <% if (project.updateDate != null) { %>
-            <div>Updated:</div>
-            <div><%= project.updateDate.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '-') %></div>
-        <% } %>
-        <% if (project.sourceCode != null && project.sourceCode !== '') { %>
-            <div>Source Code:</div>
-            <div><%= project.sourceCode %></div>
-        <% } %>
+    <div class="btn-row">
+        <a class="btn btn-primary" href="/projects/<%= project.id %>/edit">Edit</a>
+        <%- include('../partials/deleteForm', { url: `/projects/${project.id}` }) %>
     </div>
-</div>
-<% if (project.description != null && project.description !== '') { %>
-    <div>
-        <div>Description:</div>
-        <div><%= project.description %></div>
-    </div>
-<% } %>
-<% if (project.images.length > 0) { %>
-    <div class="projectImages">
-        <a class="prevImg" onclick="changeSlide(-1)">&#10094;</a>
-        <% project.images.forEach(image => { %>
-            <div class="slide">
-                <img src="<%= image %>" alt="Project Image">
-            </div>
-        <% }) %>
-        <a class="nextImg" onclick="changeSlide(1)">&#10095;</a>
-    </div>
-<% } %>
-<div class="btn-row">
-    <a class="btn btn-primary" href="/projects/<%= project.id %>/edit">Edit</a>
-    <%- include('../partials/deleteForm', { url: `/projects/${project.id}` }) %>
 </div>

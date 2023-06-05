@@ -1,0 +1,33 @@
+.btn {
+    border: none;
+    border-radius: .3rem;
+    padding: .4rem 1rem;
+    font-family: 'Roboto', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-primary {
+    color: var(--text-color);
+    background-color: var(--btn-primary-color-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-primary-color-dark);
+}
+
+.btn-danger {
+    color: var(--text-color);
+    background-color: var(--btn-danger-color-light);
+}
+
+.btn-danger:hover {
+    background-color: var(--btn-danger-color-dark);
+}
