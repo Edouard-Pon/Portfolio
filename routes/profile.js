@@ -33,7 +33,10 @@ router.post('/', async (req, res) => {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 age: req.body.age,
-                description: req.body.description
+                github: req.body.github,
+                description: req.body.description,
+                programmingLanguages: req.body.programmingLanguages,
+                languages: req.body.languages
             })
             await profile.save()
             res.redirect('profile/')
@@ -65,7 +68,10 @@ router.put('/', async (req, res) => {
         profile.firstName = req.body.firstName
         profile.lastName = req.body.lastName
         profile.age = req.body.age
+        profile.github =  req.body.github
         profile.description = req.body.description
+        profile.programmingLanguages = req.body.programmingLanguages
+        profile.languages = req.body.languages
         await profile.save()
         res.redirect('/profile')
     } catch {

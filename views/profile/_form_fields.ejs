@@ -14,7 +14,37 @@
 </div>
 <div class="form-row">
     <div class="form-item">
+        <label for="github">GitHub</label>
+        <input type="text" id="github" placeholder="Enter your GitHub" value="<%= profile.github %>">
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-item">
         <label for="description">Description</label>
         <input type="text" id="description" name="description" placeholder="Enter your Description" value="<%= profile.description %>">
     </div>
+</div>
+<div class="form-row">
+    <div class="form-item" id="programmingLanguagesField">
+        <label for="programmingLanguages">Programming Languages</label>
+        <% if (profile.programmingLanguages.length > 0) { %>
+            <% profile.programmingLanguages.forEach(pl => { %>
+                <input type="text" id="programmingLanguages" name="programmingLanguages" value="<%= pl %>">
+            <% }) %>
+        <% } %>
+    </div>
+    <button class="btn btn-primary" onclick="addField('programmingLanguagesField', 'programmingLanguages')" type="button">Add Field</button>
+    <button class="btn btn-primary" onclick="removeLastField('programmingLanguagesField', 'programmingLanguages')" type="button">Remove Field</button>
+</div>
+<div class="form-row">
+    <div class="form-item" id="languagesField">
+        <label for="languages">Languages</label>
+        <% if (profile.languages.length > 0) { %>
+            <% profile.languages.forEach(l => { %>
+                <input type="text" id="languages" name="languages" value="<%= l %>">
+            <% }) %>
+        <% } %>
+    </div>
+    <button class="btn btn-primary" onclick="addField('languagesField', 'languages')" type="button">Add Field</button>
+    <button class="btn btn-primary" onclick="removeLastField('languagesField', 'languages')" type="button">Remove Field</button>
 </div>

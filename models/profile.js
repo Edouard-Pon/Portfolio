@@ -12,9 +12,18 @@ const profileSchema = new mongoose.Schema({
     age: {
         type: String
     },
+    github: {
+        type: String
+    },
     description: {
         type: String
-    }
+    },
+    programmingLanguages: [{
+        type: String
+    }],
+    languages: [{
+        type: String
+    }]
 })
 
 module.exports = mongoose.model('Profile', profileSchema)
