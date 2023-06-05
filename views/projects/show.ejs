@@ -15,7 +15,7 @@
             <% } %>
             <% if (project.sourceCode != null && project.sourceCode !== '') { %>
                 <div>Source Code:</div>
-                <div><%= project.sourceCode %></div>
+                <div><a href="<%= project.sourceCode %>" target="_blank">GitHub</a></div>
             <% } %>
         </div>
         <% if (project.description != null && project.description !== '') { %>
