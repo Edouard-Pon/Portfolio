@@ -18,8 +18,9 @@
     grid-row-gap: 3rem;
     grid-column-gap: 10rem;
     grid-template-columns: repeat(auto-fill, var(--project-cover-width));
-    padding: 5rem 0;
+    padding: 2rem 0;
     border-radius: 5px;
+    text-align: center;
 }
 
 .projects-grid a {
@@ -95,4 +96,5 @@
 
 .project-title {
     margin-left: 1.2rem;
+    margin-bottom: 1.2rem;
 }
