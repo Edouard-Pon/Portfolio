@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
 
 const mongoose = require('mongoose')
 mongoose.set('strictQuery', false)
-mongoose.connect(process.env.DATABASE_URL, (error) => { if (error) console.log(error) })
+mongoose.connect(process.env.DATABASE_URL)
 mongoose.connection.once('open', () => console.log('Connected to Mongoose'))
 
 app.use('/', indexRouter)
