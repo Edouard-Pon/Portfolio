@@ -32,7 +32,6 @@ router.post('/', async (req, res) => {
             const profile = new Profile({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
-                age: req.body.age,
                 github: req.body.github,
                 description: req.body.description,
                 programmingLanguages: req.body.programmingLanguages,
@@ -67,8 +66,7 @@ router.put('/', async (req, res) => {
         profile = await Profile.findOne()
         profile.firstName = req.body.firstName
         profile.lastName = req.body.lastName
-        profile.age = req.body.age
-        profile.github =  req.body.github
+        profile.github = req.body.github
         profile.description = req.body.description
         profile.programmingLanguages = req.body.programmingLanguages
         profile.languages = req.body.languages
