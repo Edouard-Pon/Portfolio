@@ -18,7 +18,9 @@
     </div>
     <div class="profile-description">
         <% if (profile.description != null && profile.description !== '') { %>
-            <p><%= profile.description %></p>
+            <% profile.description.split('\n').forEach(p => { %>
+                <p><%= p %></p>
+            <% }) %>
         <% } %>
     </div>
 </section>
