@@ -28,29 +28,32 @@ router.post('/', async (req, res) => {
             sourceCode: req.body.sourceCode,
             description: req.body.description,
             coverImageLink: req.body.coverImageLink,
-            images: req.body.projectImages
+            images: req.body.projectImages,
+            priority: req.body.priority,
+            customUrl: req.body.customUrl
         })
         await newProject.save()
-        res.redirect(`projects/${newProject.id}`)
+        res.redirect(`projects/${newProject.customUrl}`)
     } catch {
         res.render('projects/new', { project: new Project(), errorMessage: 'Error creating new Project!' })
     }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:customUrl', async (req, res) => {
     try {
-        const project = await Project.findById(req.params.id)
-        res.render('projects/show', { project: project })
+        const project = await Project.findOne({ customUrl: new RegExp(`${req.params.customUrl}$`, 'i') })
+        if (project === null) res.redirect('/')
+        else res.render('projects/show', { project: project })
     } catch {
         res.redirect('/')
     }
 })
 
 // Delete Project Page
-router.delete('/:id', async (req, res) => {
+router.delete('/:customUrl', async (req, res) => {
     let project
     try {
-        project = await Project.findById(req.params.id)
+        project = await Project.findOne({ customUrl: new RegExp(`${req.params.customUrl}$`, 'i') })
         await project.remove()
         res.redirect('/projects')
     } catch {
@@ -66,9 +69,9 @@ router.delete('/:id', async (req, res) => {
 })
 
 // Edit Project Route
-router.get('/:id/edit', async (req, res) => {
+router.get('/:customUrl/edit', async (req, res) => {
     try {
-        const project = await Project.findById(req.params.id)
+        const project = await Project.findOne({ customUrl: new RegExp(`${req.params.customUrl}$`, 'i') })
         res.render('projects/edit', { project: project })
     } catch {
         res.redirect('/projects')
@@ -76,10 +79,10 @@ router.get('/:id/edit', async (req, res) => {
 })
 
 // Update Project Route
-router.put('/:id',  async (req, res) => {
+router.put('/:customUrl',  async (req, res) => {
     let project
     try {
-        project = await Project.findById(req.params.id)
+        project = await Project.findOne({ customUrl: new RegExp(`${req.params.customUrl}$`, 'i') })
         project.title = req.body.title
         project.uploadDate = req.body.uploadDate
         project.updateDate = req.body.updateDate
@@ -87,8 +90,10 @@ router.put('/:id',  async (req, res) => {
         project.description = req.body.description
         project.coverImageLink = req.body.coverImageLink
         project.images = req.body.projectImages
+        project.priority = req.body.priority
+        project.customUrl = req.body.customUrl
         await project.save()
-        res.redirect(`/projects/${project.id}`)
+        res.redirect(`/projects/${project.customUrl}`)
     } catch {
         if (project == null) {
             res.redirect('/')

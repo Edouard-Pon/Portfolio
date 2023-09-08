@@ -7,7 +7,7 @@
             <% if (projects && projects.length !== 0) { %>
                 <% projects.forEach(project => { %>
                     <section>
-                        <h2><a href="/projects/<%= project.id %>"><%= project.title %></a></h2>
+                        <h2><a href="/projects/<%= project.customUrl %>"><%= project.title %></a></h2>
                     </section>
                 <% }) %>
             <% } %>
