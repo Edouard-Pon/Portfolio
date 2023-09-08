@@ -23,7 +23,13 @@ const projectSchema = new mongoose.Schema({
     },
     images: [{
         type: String
-    }]
+    }],
+    customUrl: {
+        type: String
+    },
+    priority: {
+        type: Number
+    }
 })
 
 module.exports = mongoose.model('Project', projectSchema)
