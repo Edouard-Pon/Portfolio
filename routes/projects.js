@@ -11,10 +11,11 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:customUrl', async (req, res) => {
     try {
-        const project = await Project.findById(req.params.id)
-        res.render('projects/show', { project: project })
+        const project = await Project.findOne({ customUrl: new RegExp(`^${req.params.customUrl}$`, 'i') })
+        if (project === null) res.redirect('/')
+        else res.render('projects/show', { project: project })
     } catch {
         res.redirect('/')
     }

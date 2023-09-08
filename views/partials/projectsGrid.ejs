@@ -4,11 +4,11 @@
         <% projects.forEach(project => { %>
             <section>
                 <% if (!project.coverImageLink && project.coverImageLink !== '') { %>
-                    <a href="/projects/<%= project.id %>">
+                    <a href="/projects/<%= project.customUrl %>">
                         <img class="project-cover <%= projectCoverClass %>" src="<%= project.coverImageLink %>" alt="">
                     </a>
                 <% } %>
-                <h2><a href="/projects/<%= project.id %>"><%= project.title %></a></h2>
+                <h2><a href="/projects/<%= project.customUrl %>"><%= project.title %></a></h2>
             </section>
         <% }) %>
     <% } %>
