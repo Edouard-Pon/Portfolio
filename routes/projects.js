@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
 
 router.get('/:customUrl', async (req, res) => {
     try {
-        const project = await Project.findOne({ customUrl: new RegExp(`${req.params.customUrl}$`, 'i') })
+        const project = await Project.findOne({ customUrl: new RegExp(`^${req.params.customUrl}$`, 'i') })
         if (project === null) res.redirect('/')
         else res.render('projects/show', { project: project })
     } catch {
@@ -53,7 +53,7 @@ router.get('/:customUrl', async (req, res) => {
 router.delete('/:customUrl', async (req, res) => {
     let project
     try {
-        project = await Project.findOne({ customUrl: new RegExp(`${req.params.customUrl}$`, 'i') })
+        project = await Project.findOne({ customUrl: new RegExp(`^${req.params.customUrl}$`, 'i') })
         await project.remove()
         res.redirect('/projects')
     } catch {
@@ -71,7 +71,7 @@ router.delete('/:customUrl', async (req, res) => {
 // Edit Project Route
 router.get('/:customUrl/edit', async (req, res) => {
     try {
-        const project = await Project.findOne({ customUrl: new RegExp(`${req.params.customUrl}$`, 'i') })
+        const project = await Project.findOne({ customUrl: new RegExp(`^${req.params.customUrl}$`, 'i') })
         res.render('projects/edit', { project: project })
     } catch {
         res.redirect('/projects')
@@ -82,7 +82,7 @@ router.get('/:customUrl/edit', async (req, res) => {
 router.put('/:customUrl',  async (req, res) => {
     let project
     try {
-        project = await Project.findOne({ customUrl: new RegExp(`${req.params.customUrl}$`, 'i') })
+        project = await Project.findOne({ customUrl: new RegExp(`^${req.params.customUrl}$`, 'i') })
         project.title = req.body.title
         project.uploadDate = req.body.uploadDate
         project.updateDate = req.body.updateDate
