@@ -37,7 +37,7 @@
         </div>
     <% } %>
     <div class="btn-row">
-        <a class="btn btn-primary" href="/projects/<%= project.id %>/edit">Edit</a>
-        <%- include('../partials/deleteForm', { url: `/projects/${project.id}` }) %>
+        <a class="btn btn-primary" href="/projects/<%= project.customUrl %>/edit">Edit</a>
+        <%- include('../partials/deleteForm', { url: `/projects/${project.customUrl}` }) %>
     </div>
 </div>
