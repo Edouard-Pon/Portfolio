@@ -4,7 +4,7 @@ const Project = require('../models/project')
 
 router.get('/', async (req, res) => {
     try {
-        const projects = await Project.find()
+        const projects = await Project.find().sort({ priority: -1 })
         res.render('projects/index', { projects: projects })
     } catch {
         res.redirect('/')
