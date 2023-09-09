@@ -5,7 +5,7 @@ const Profile = require('../models/profile')
 
 router.get('/', async (req, res) => {
     try {
-        const projects = await Project.find()
+        const projects = await Project.find().sort({ priority: -1 })
         const profile = await Profile.findOne()
         if (!profile) {
             res.render('index', { projects: projects, profile: new Profile(), errorMessage: 'You haven\'t set up your profile yet!' })
